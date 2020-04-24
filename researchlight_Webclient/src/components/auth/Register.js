@@ -3,8 +3,10 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
 import {setAlert} from '../../actions/alert'
+import PropTypes from 'prop-types';
+import {register} from '../../actions/auth/auth'
  
- const Register = (props) => {
+ const Register = ({setAlert,register}) => {
 
     const [formData, setFormData] = useState({
         name: '',
@@ -18,9 +20,9 @@ import {setAlert} from '../../actions/alert'
     const onSubmit =async  e => {
         e.preventDefault();
         if (password != password2) {
-            props.setAlert('password does not match','danger')
+            setAlert('Password does not match','danger')
         }else{
-            console.log('Success')
+            register({name,email,password})
             // const newUser = {
             //     name,email,password
             // }
@@ -58,7 +60,7 @@ import {setAlert} from '../../actions/alert'
                     type="password"
                     placeholder="Password"
                     name="password"
-                    minLength="8"
+                    maxLength={6}
                     value={password}
                     onChange = {e=>onChange(e)}
                 />
@@ -68,7 +70,7 @@ import {setAlert} from '../../actions/alert'
                     type="password"
                     placeholder="Confirm Password"
                     name="password2"
-                    minLength="8" 
+                    maxLength={6}
                     value={password2}
                     onChange = {e=>onChange(e)}
                 />
@@ -81,5 +83,11 @@ import {setAlert} from '../../actions/alert'
         </Fragment>
     )
 }
+
+Register.propTypes = {
+    setAlert: PropTypes.func.isRequired,
+    register: PropTypes.func.isRequired,
+}
+
 //takes any state as first paramater, second is an object with any action to use
-export default connect(null,{setAlert})(Register)
+export default connect(null,{setAlert,register})(Register)

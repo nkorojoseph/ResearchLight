@@ -8,6 +8,7 @@ import './App.css';
 //import provider for the redux to tie redux and react
 import {Provider } from 'react-redux'
 import store from '../src/store/store'
+import Alert from './components/layout/Alert'
 
 const App=()=> {
   return (
@@ -18,6 +19,7 @@ const App=()=> {
           </Navbar>
           <Route component={Landing} exact path='/' ></Route>
           <section className="container">
+            <Alert></Alert>
             <Switch>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
