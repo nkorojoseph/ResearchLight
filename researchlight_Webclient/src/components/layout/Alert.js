@@ -8,9 +8,9 @@ export const Alert = ({alerts}) => alerts != null && alerts.length > 0 && alerts
     </div>
 ))
 
-Alert.propTypes = {
-    alerts: PropTypes.func.isRequired,
-}
+// Alert.propTypes = {
+//     alerts: PropTypes.func.isRequired,
+// }
 
 //state.alert is coming from the root reducer. 
 //whatever state you need comes from the rootReducer

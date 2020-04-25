@@ -23,21 +23,7 @@ import {register} from '../../actions/auth/auth'
             setAlert('Password does not match','danger')
         }else{
             register({name,email,password})
-            // const newUser = {
-            //     name,email,password
-            // }
-            // try {
-            //     const config = {
-            //         headers: {
-            //             'Content-Type': 'application/json'
-            //         }
-            //     }
-            //     const body = JSON.stringify(newUser)
-            //     const res = await axios.post('/api/users',body,config)
-            //     console.log(res.data)
-            // } catch (error) {
-            //     console.error(error.response.data)
-            // }
+       
         }
     }
     return (
@@ -49,7 +35,7 @@ import {register} from '../../actions/auth/auth'
                 <input type="text" placeholder="Name" name="name" value={name} onChange={e=>onChange(e)}  required />
                 </div>
                 <div className="form-group">
-                <input type="email" placeholder="Email Address" name="email"  value={email} onChange={e=> onChange(e)} required/>
+                <input type="email" placeholder="Email Address" name="email"  value={email} onChange={e=> onChange(e)}  required />
                 <small className="form-text"
                     >This site uses Gravatar so if you want a profile image, use a
                     Gravatar email</small
@@ -63,6 +49,7 @@ import {register} from '../../actions/auth/auth'
                     maxLength={6}
                     value={password}
                     onChange = {e=>onChange(e)}
+                    required
                 />
                 </div>
                 <div className="form-group">
@@ -73,6 +60,7 @@ import {register} from '../../actions/auth/auth'
                     maxLength={6}
                     value={password2}
                     onChange = {e=>onChange(e)}
+                    required
                 />
                 </div>
                 <input type="submit" className="btn btn-primary" value="Register" />

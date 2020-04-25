@@ -22,7 +22,7 @@ router.post('/',
     async (req,res)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json({errors: error.array() })
+        return res.status(400).json({errors: errors.array() })
     }
 
     //destructure body
@@ -52,12 +52,9 @@ router.post('/',
 
         //save the new record
         await user.save()
-
-        
         /**
          * Generate jswebtoken to access protected routes
          */
-
          //create a webtoken payload with the user id or _id from mongodb
         const payload = {
             user: {

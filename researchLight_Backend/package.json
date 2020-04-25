@@ -21,7 +21,7 @@
     "start": "node start",
     "server": "nodemon ./server/server",
     "webClient": "npm start --prefix ../researchlight_Webclient",
-    "dev": "concurrently \"yarn run server\" \"yarn run webClient\""
+    "dev": "concurrently \"npm run server\" \"npm run webClient\""
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
