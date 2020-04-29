@@ -82,6 +82,8 @@ export const login = (email,password) => async dispatch => {
     }
 }
 
+//profile and dashboard
+
 // Logout / Clear all token and profile
 export const logout = () => dispatch => {
     dispatch({
