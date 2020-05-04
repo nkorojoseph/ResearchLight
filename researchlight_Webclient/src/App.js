@@ -8,7 +8,9 @@ import Alert from './components/layout/Alert'
 import Dashboard from './components/dashboard/Dashboard'
 import PrivateRoute from './components/routes/PrivateRoute'
 import CreateProfile from './components/profileForm/CreateProfile'
+
 import './App.css';
+import EditProfile from './components/profileForm/EditProfile'
 //import provider for the redux to tie redux and react
 import {Provider } from 'react-redux'
 import store from '../src/store/store'
@@ -31,12 +33,13 @@ const App=()=> {
           </Navbar>
           <Route component={Landing} exact path='/' ></Route>
           <section className="container">
-            <Alert></Alert>
+            <Alert></Alert>  
             <Switch>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
               <PrivateRoute exact path="/dashboard" component={Dashboard}></PrivateRoute>
               <PrivateRoute exact path="/create-profile" component={CreateProfile}></PrivateRoute>
+              <PrivateRoute exact path="/edit-profile" component={EditProfile}></PrivateRoute>
             </Switch>
           </section>
         </Fragment> 

@@ -4,11 +4,12 @@ import {connect} from 'react-redux'
 import {getUserProfile} from '../../actions/profile/profile'
 import Spinner from '../layout/Spinner'
 import { Link } from 'react-router-dom'
+import DashboardLinks from './DashboardLinks'
 
 const Dashboard = ({getUserProfile,auth:{user},profile:{profile,loading}}) => {
     useEffect(()=>{
         getUserProfile()
-    },[])
+    },[getUserProfile])
 
     return loading && profile === null ? 
     <Spinner></Spinner>:
@@ -17,7 +18,7 @@ const Dashboard = ({getUserProfile,auth:{user},profile:{profile,loading}}) => {
         <p className="lead">
             <i className="fas fa-user"></i> Welcome {user && user.name}
         </p>
-        {profile !=null ? <Fragment>Has</Fragment> : 
+        {profile !=null ? <Fragment><DashboardLinks></DashboardLinks></Fragment> : 
         <Fragment>
             <p>You have not created a profile. Please add some info
                   <Link to='/create-profile' className="btn btn-primary my-1">Create Profile</Link>
