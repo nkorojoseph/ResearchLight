@@ -8,7 +8,8 @@ import Alert from './components/layout/Alert'
 import Dashboard from './components/dashboard/Dashboard'
 import PrivateRoute from './components/routes/PrivateRoute'
 import CreateProfile from './components/profileForm/CreateProfile'
-
+import AddExperience from './components/profileForm/AddExperience'
+import AddEducation from './components/profileForm/AddEducation'
 import './App.css';
 import EditProfile from './components/profileForm/EditProfile'
 //import provider for the redux to tie redux and react
@@ -40,6 +41,8 @@ const App=()=> {
               <PrivateRoute exact path="/dashboard" component={Dashboard}></PrivateRoute>
               <PrivateRoute exact path="/create-profile" component={CreateProfile}></PrivateRoute>
               <PrivateRoute exact path="/edit-profile" component={EditProfile}></PrivateRoute>
+              <PrivateRoute exact path="/add-experience" component={AddExperience}></PrivateRoute>
+              <PrivateRoute exact path="/add-education" component={AddEducation}></PrivateRoute>
             </Switch>
           </section>
         </Fragment> 

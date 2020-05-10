@@ -190,18 +190,18 @@ router.put('/experience',[auth,
 ])
 
 //@access private
-//@desc  delete a profile education from profile
+//@desc  delete a profile experience from profile
 //@route PUT/DELETE api/profile/
 
-router.delete('/education/:exp_id',auth,async (req,res)=>{
+router.delete('/experience/:exp_id',auth,async (req,res)=>{
     try {
         const profile = await Profile.findOne({user: req.user.id})
 
         //Get education to remove
-        const removeIndex = profile.education.map(item => item.id).indexOf(req.params.exp_id)
+        const removeIndex = profile.experience.map(item => item.id).indexOf(req.params.exp_id)
 
         //remove the education index 
-        profile.education.splice(removeIndex,1)
+        profile.experience.splice(removeIndex,1)
 
         //resave
         await profile.save()
