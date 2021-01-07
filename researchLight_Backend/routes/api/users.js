@@ -15,7 +15,7 @@ router.post('/',
 
     //Data validation from the frontend
     [
-        check('name','Name is empty.').not().isEmpty(),
+        check('name','Name is cannot be empty.').not().isEmpty(),
         check('email','Email must not be empty').isEmail(),
         check('password','Please enter a password').isLength({min:6})
     ],
@@ -35,6 +35,7 @@ router.post('/',
             return res.status(400).json({errors:[{message: 'User already exist'}]})
         }
         //generate a new avatar for a new user creation
+        //s: size, r:radiance, d:default
         const avatar = gravatar.url(email,{
             s: '200',
             r: 'pg',

@@ -9,7 +9,7 @@ const User = require('../../models/Users')
 const router = express.Router()
 
 
-// @rout GET api/users
+// @route GET api/users
 // @desc | Test users route
 // @access public
 
@@ -17,6 +17,7 @@ router.get('/',auth, async (req,res)=>{
     //respond with users record
 
     try {
+        //leave off the password with -password in the select
         const user = await User.findById(req.user.id).select('-password')
         res.json(user)
     } catch (error) { 
@@ -25,7 +26,7 @@ router.get('/',auth, async (req,res)=>{
     }
 })
 
-// @rout POST api/users
+// @route POST api/users
 // @desc User registration
 // @access public
 router.post('/',

@@ -5,6 +5,7 @@ import {setAlert} from '../alert'
 
 import {
     GET_PROFILE,
+    GET_PROFILES,
     UPDATE_PROFILE,
     PROFILE_ERROR,
     ACCOUNT_DELETED,
@@ -28,6 +29,51 @@ export const getUserProfile = () => async dispatch => {
         })
     }
 }
+
+//get all profiles
+export const getProfiles = () => async dispatch => {
+
+    dispatch({
+        type: CLEAR_PROFILE
+    })
+    
+    try {
+        const res = await axios.get('/api/profile')
+
+        dispatch({
+            type: GET_PROFILES,
+            payload: res.data
+        })
+    } catch (error) {
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: {msg: error.response.statusText, status: error.response.status}
+        })
+    }
+}
+
+//get  profile by id
+export const getProfileById = () => async dispatch => {
+
+    dispatch({
+        type: CLEAR_PROFILE
+    })
+    
+    try {
+        const res = await axios.get('/api/profile')
+
+        dispatch({
+            type: GET_PROFILES,
+            payload: res.data
+        })
+    } catch (error) {
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: {msg: error.response.statusText, status: error.response.status}
+        })
+    }
+}
+
 
 //create profile
 export const createProfile = (formData,history,edit=false) => async dispatch => {

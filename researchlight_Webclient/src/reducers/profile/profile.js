@@ -1,6 +1,6 @@
 //fetch profile data when we login
 
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, CLEAR_PROFILE } from "../../actions/types";
+import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, CLEAR_PROFILE, GET_PROFILES } from "../../actions/types";
 
 //fetch a users profile when we visit another another Researchers profile
 const initialState = {
@@ -22,6 +22,12 @@ export default function(state=initialState, action){
                 profile: payload,
                 loading: false
             };
+        case GET_PROFILES: 
+            return {
+                ...state,
+                profiles:payload, 
+                loading:false
+            }
         case PROFILE_ERROR:
             return {
                 ...state,
