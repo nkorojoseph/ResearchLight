@@ -95,7 +95,7 @@ router.post( '/', [
            return res.json(profile)
         } catch (error) {
             console.error(error.message)
-            res.status(500).send("Server Error")
+            res.status(500).send("Server Error") 
         }
  
     }
@@ -104,10 +104,10 @@ router.post( '/', [
 
 //@access public
 //@desc  get all profiles
-//@route GET api/profile/
+//@route Public
 router.get('/', async (req,res)=>{
     try {
-        const profiles = await Profile.find().populate('users',['name','avatar'])
+        const profiles = await Profile.find().populate('user',['name','avatar'])
         res.json(profiles)
     } catch (error) {
         console.error(error.message) 

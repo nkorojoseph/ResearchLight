@@ -26,7 +26,8 @@ router.get('/',auth, async (req,res)=>{
     }
 })
 
-// @route POST api/users
+// Login api endpoint
+// @route POST api/users 
 // @desc User registration
 // @access public
 router.post('/',
