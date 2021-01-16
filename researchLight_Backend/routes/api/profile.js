@@ -94,7 +94,7 @@ router.post( '/', [
 
            return res.json(profile)
         } catch (error) {
-            console.error(error.message)
+            //console.error(error.message)
             res.status(500).send("Server Error") 
         }
  
@@ -110,14 +110,17 @@ router.get('/', async (req,res)=>{
         const profiles = await Profile.find().populate('user',['name','avatar'])
         res.json(profiles)
     } catch (error) {
-        console.error(error.message) 
+        //console.error(error.message) 
+        if (error.kind == undefined) {
+            return res.status(400).json({message:'deleted'})
+        }
         res.status(500).send('Server Error')
     }
 })
 
 
 //@access public
-//@desc  get a profiles
+//@desc  get a profile
 //@route GET api/profile/user/:user_id
 router.get('/user/:user_id', async (req,res)=>{
     try {
@@ -125,7 +128,7 @@ router.get('/user/:user_id', async (req,res)=>{
         if(!profile) return res.status(400).json({message:'User profile not found'})
         res.json(profile)
     } catch (error) {
-        console.error(error.message) 
+        //console.error(error.message) 
         if(error.kind == undefined){
             return res.status(400).json({message:'User profile not found'})
         }
@@ -148,7 +151,10 @@ router.delete('/', auth, async (req,res)=>{
 
             res.json({message: 'User removed'})
     } catch (error) {
-        console.error(error.message) 
+        //console.error(error.message) 
+        if (error) {
+            return res.status(400).json({message:'deleted'})
+        }
         res.status(500).send('Server Error')
     }
 })

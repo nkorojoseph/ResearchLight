@@ -45,6 +45,7 @@ export const getProfiles = () => async dispatch => {
             payload: res.data
         })
     } catch (error) {
+        //console.log(error)
         dispatch({
             type: PROFILE_ERROR,
             payload: {msg: error.response.statusText, status: error.response.status}
@@ -53,21 +54,17 @@ export const getProfiles = () => async dispatch => {
 }
 
 //get  profile by id
-export const getProfileById = () => async dispatch => {
+export const getProfileById = userId => async dispatch => {
 
-    dispatch({
-        type: CLEAR_PROFILE
-    })
-    
     try {
-        const res = await axios.get('/api/profile')
+        const res = await axios.get(`/api/profile/user/${userId}`)
 
         dispatch({
             type: GET_PROFILES,
             payload: res.data
         })
     } catch (error) {
-        dispatch({
+        dispatch({ 
             type: PROFILE_ERROR,
             payload: {msg: error.response.statusText, status: error.response.status}
         })
@@ -208,7 +205,7 @@ export const deleteAccount = () => async dispatch=> {
    if(window.confirm('Do you want to delete your account? This can not be undone')){
         try {
             //hit endpoint
-            const res = await axios.delete(`/api/profile`)
+            //const res = await axios.delete(`/api/profile`)
 
             //dispatch update profile after deleting a profile to update the user profile
             dispatch({

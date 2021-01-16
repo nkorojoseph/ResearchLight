@@ -81,9 +81,9 @@ Register.propTypes = {
     isAuthenticated: PropTypes.bool,
 }
 
-const mapStateToProps = state => ({
+{/* const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated
-})
+}) */}
 
 
 //takes any state as first paramater, second is an object with any action to use
