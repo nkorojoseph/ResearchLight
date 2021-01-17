@@ -1,6 +1,6 @@
 //fetch profile data when we login
 
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, CLEAR_PROFILE, GET_PROFILES } from "../../actions/types";
+import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, CLEAR_PROFILE, GET_PROFILES, GET_REPOS } from "../../actions/types";
 
 //fetch a users profile when we visit another another Researchers profile
 const initialState = {
@@ -41,6 +41,13 @@ export default function(state=initialState, action){
                 repos:[],
                 loading: false
             }
+        case GET_REPOS:{
+            return {
+                ...state,
+                repos: payload,
+                loading: false
+            }
+        }
     
         default:
             return state

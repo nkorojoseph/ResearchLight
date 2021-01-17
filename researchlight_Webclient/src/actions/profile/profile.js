@@ -9,7 +9,8 @@ import {
     UPDATE_PROFILE,
     PROFILE_ERROR,
     ACCOUNT_DELETED,
-    CLEAR_PROFILE
+    CLEAR_PROFILE,
+    GET_REPOS
 } from '../types'
 
 //get the current users profile
@@ -60,11 +61,30 @@ export const getProfileById = userId => async dispatch => {
         const res = await axios.get(`/api/profile/user/${userId}`)
 
         dispatch({
-            type: GET_PROFILES,
+            type: GET_PROFILE,
             payload: res.data
         })
     } catch (error) {
         dispatch({ 
+            type: PROFILE_ERROR,
+            payload: {msg: error.response.statusText, status: error.response.status}
+        })
+    }
+}
+
+//get github repo
+export const getGithubRepos = (username) => async dispatch => {
+    
+    try {
+        const res = await axios.get(`/api/profile/github/${username}`)
+
+        dispatch({
+            type: GET_REPOS,
+            payload: res.data
+        })
+    } catch (error) {
+        //console.log(error)
+        dispatch({
             type: PROFILE_ERROR,
             payload: {msg: error.response.statusText, status: error.response.status}
         })
