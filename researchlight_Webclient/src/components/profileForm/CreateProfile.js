@@ -88,7 +88,7 @@ const CreateProfile = ({createProfile, history}) => {
         <div className="form-group">
           <input type="text" placeholder="Location" name="location" value ={location} onChange={e=>onChange(e)} />
           <small className="form-text"
-            >City & state suggested (eg. Boston, MA)</small
+            >City & state suggested (eg. Lagos, Abia)</small
           >
         </div>
         <div className="form-group">

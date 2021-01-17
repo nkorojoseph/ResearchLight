@@ -17,7 +17,7 @@ const router = express.Router()
 router.get('/me',auth,async (req,res)=>{
     try {
         //search with the userId that comes with the token sent from the frontend
-        const profile = await Profile.findOne({user: req.user.id}).populate('users',
+        const profile = await Profile.findOne({user: req.user.id}).populate('user',
         ['name','avatar'])
         if(!profile){
             return res.status(400).json({message: 'There is no profile for the user'})
@@ -124,7 +124,7 @@ router.get('/', async (req,res)=>{
 //@route GET api/profile/user/:user_id
 router.get('/user/:user_id', async (req,res)=>{
     try {
-        const profile = await Profile.findOne({user:req.params.user_id}).populate('users',['name','avatar'])
+        const profile = await Profile.findOne({user:req.params.user_id}).populate('user',['name','avatar'])
         if(!profile) return res.status(400).json({message:'User profile not found'})
         res.json(profile)
     } catch (error) {
