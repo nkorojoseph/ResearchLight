@@ -56,7 +56,6 @@ const Profile = (
 
                         </div>
                         
-
                         <div className="profile-edu bg-white pp-2">
                             <h2 className="text-primary">
                                 Education
