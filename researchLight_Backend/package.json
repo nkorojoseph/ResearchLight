@@ -22,7 +22,8 @@
     "start": "node start",
     "server": "nodemon ./server/server --ignore client",
     "webClient": "npm start --prefix ../researchlight_Webclient",
-    "dev": "concurrently \"npm run server\" \"npm run webClient\""
+    "dev": "concurrently \"npm run server\" \"npm run webClient\"",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix ../researchlight_Webclient && npm run build --prefix ../researchlight_Webclient"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",

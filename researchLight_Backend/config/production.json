@@ -1,0 +1,7 @@
+{
+    "mongoURI" : "mongodb+srv://nkorojoseph:%2FP1A2S3S4%2F@cluster0.9kltk.mongodb.net/RELIGHT?retryWrites=true&w=majority",
+    "jwtSecret" : "mysecrettoken",
+    "githubClientId" : "e86827222f4bd500e0d1",
+    "githubSecret" : "eb0f51437050c240c8a297b1b7d21b0002d4a5af",
+    "token": "eb0f51437050c240c8a297b1b7d21b0002d4a5af"
+}

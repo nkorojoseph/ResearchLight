@@ -40,7 +40,6 @@ router.post('/',
 
 
         } catch (errors) {
-            console.error(errors.message)
             res.status(400).send('Server Error')
         }       
 })
@@ -120,6 +119,7 @@ router.put('/like/:id',auth,async (req,res) => {
         res.json(post.likes)
         
     } catch (error) {
+        console.log(error)
         if(error.kind == undefined){
             return res.status(404).json({message: 'Like failed due to server failure'})
         }
@@ -131,7 +131,7 @@ router.put('/like/:id',auth,async (req,res) => {
 // @desc  Like a post by the post id
 // @access private
 
-router.put('/posts/:id',auth,async (req,res) => {
+router.put('/unlike/:id',auth,async (req,res) => {
     try {
         const post = await Post.findById(req.params.id)
 
