@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
     app.use(express.static('../../researchlight_Webclient/build'))
 
     app.get('*', (req,res) => {
-        res.sendFile(path.resolve(__dirname, 'researchlight_Webclient','build','index.html'))
+        res.sendFile(path.resolve(__dirname, '../../researchlight_Webclient','build','index.html'))
     })
 
 
