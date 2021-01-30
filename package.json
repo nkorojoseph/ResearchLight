@@ -2,7 +2,7 @@
   "name": "researchLight",
   "version": "1.0.0",
   "description": "Backend handling the researchLight platform",
-  "main": "index.js",
+  "main": "server.js",
   "author": "nkorojoseph",
   "license": "MIT",
   "private": false,
