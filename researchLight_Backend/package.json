@@ -19,17 +19,14 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "node researchLight_Backend/server",
+    "start": "node start",
     "server": "nodemon ./server/server --ignore client",
     "webClient": "npm start --prefix ../researchlight_Webclient",
     "dev": "concurrently \"npm run server\" \"npm run webClient\"",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix ../researchlight_Webclient && npm run build --prefix ../researchlight_Webclient"
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix ../researchlight_Webclient && npm run buildncopy --prefix ../researchlight_Webclient"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
     "nodemon": "^2.0.3"
-  },
-  "engines": {
-    "node": "12.13.0"
   }
 }

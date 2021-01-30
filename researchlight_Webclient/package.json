@@ -33,7 +33,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon ./server/server"
+    "server": "nodemon ./server/server",
+    "copy": "copy -r build ../researchLight_Backend/",
+    "copyFile": "@powershell copy 'build' '../researchLight_Backend/'",
+    "buildncopy": "npm run build && npm run copyFile"
   },
   "eslintConfig": {
     "extends": "react-app"
