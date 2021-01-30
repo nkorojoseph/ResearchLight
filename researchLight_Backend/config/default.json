@@ -1,7 +1,0 @@
-{
-    "mongoURI" : "mongodb://127.0.0.1:27017/research_Light_DB",
-    "jwtSecret" : "mysecrettoken",
-    "githubClientId" : "e86827222f4bd500e0d1",
-    "githubSecret" : "eb0f51437050c240c8a297b1b7d21b0002d4a5af",
-    "token": "eb0f51437050c240c8a297b1b7d21b0002d4a5af"
-}
